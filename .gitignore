@@ -1,4 +1,5 @@
 #node modules
 /server/node_modules
 
-/voting
+/voting/node_modules
+/voting/build
