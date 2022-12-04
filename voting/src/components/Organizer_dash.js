@@ -35,6 +35,9 @@ import * as ReactDOM from 'react-dom/client';
             let p2=document.createElement('p');
             p2.innerHTML='votes : '+res.data.votes;
 
+
+
+
             div1.appendChild(p1);
             div1.appendChild(p2);
             x.appendChild(div1);
@@ -43,7 +46,7 @@ import * as ReactDOM from 'react-dom/client';
 
         })
 
-        alert("the results are calculated");
+        alert("the results are calculated ...");
 
     }
 
