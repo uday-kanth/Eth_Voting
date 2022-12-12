@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const Voter=require("./DB_models/Votermodel")
 
 const chain=require("./Voting_block.js");
+const Web3 = require('web3');
 
 
 
@@ -66,47 +67,51 @@ let result={
   votes:0
 };
 
-app.post('/org',(req,res)=>{
+// app.post('/org',async (req,res)=>{
 
   
 
-  console.log(req.body)
-  let obj=JSON.stringify(req.body)
+//   //console.log(req.body)
+//   //let obj=JSON.stringify(req.body)
   
-  console.log(obj)
+//   //console.log(obj)
   
  
-  chain.set_User(req.body.chainaddress,req.body.chainkey);
+//   //chain.set_User(req.body.chainaddress,req.body.chainkey);
 
-  if(req.body.mode==1){
-    chain.start_voting();
-  }
-  else if(req.body.mode==2){
-    chain.end_voting();
-  }
-  else if(req.body.mode==3){
-    chain.get_Result().then(response=>JSON.parse(response)).then(data=>{
-      console.log(data);
-      result.winner=data.winner;
-      result.votes=data.votes;
+//   if(req.body.mode==1){
+//     chain.start_voting();
+//   }
+//   else if(req.body.mode==2){
+//     chain.end_voting();
+//   }
+//   else if(req.body.mode==3){
+//     chain.get_Result().then(response=>JSON.parse(response)).then(data=>{
+//       console.log(data);
+//       result.winner=data.winner;
+//       result.votes=data.votes;
 
 
-    });
+//     });
     
     
     
-  }
-  else if(req.body.mode==4){
-    chain.do_vote(req.body.choice);
-  }
+//   }
+//   else if(req.body.mode==4){
+//     //chain.do_vote(req.body.choice);
+//     console.log(req.body.connect)
+//     let contract=JSON.parse(req.body.connect);
+//     var oldvalue = await contract.methods.get_status().call();
+//   console.log("oldvalue", oldvalue); 
+//   }
   
-  res.json(result);
+//   res.json(result);
 
 
 
 
 
-  })
+//   })
 
 
 
@@ -129,24 +134,11 @@ let obj=JSON.stringify(req.body)
 console.log(obj)
 
 hehe(obj)
-chain.set_User(req.body.chainaddress,req.body.chainkey);
+// chain.set_User(req.body.chainaddress,req.body.chainkey);
 
-chain.register_voter(req.body.FirstName);
+// chain.register_voter(req.body.FirstName);
 
 //hehe(x.FirstName,x.LastName,x.Aadhar,x.Mobile,x.DOB,x.Address,x.Email)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 })
 
@@ -182,12 +174,12 @@ if(parseInt(req.body.OTPuser)===otp){
   let data={
     match_or_not:1
   }
-  let chainaddress=req.body.chainaddress;
-  let chainkey=req.body.chainkey;
+  // let chainaddress=req.body.chainaddress;
+  // let chainkey=req.body.chainkey;
 
   res.json(data)
 
-  chain.set_User(chainaddress,chainkey);
+  //chain.set_User(chainaddress,chainkey);
 
   
 }

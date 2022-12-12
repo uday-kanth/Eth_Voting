@@ -5,6 +5,7 @@ import Corousel from 'react-elastic-carousel';
 import CourItem from './CourItem';
 
 import axios from 'axios';
+const CircularJSON = require('circular-json');
 const Voter_Dash=(props)=> {
 
 
@@ -47,21 +48,19 @@ let  items=[
 
   function do_vote(para){
 
-    axios.post('http://localhost:5000/org', {
+    // axios.post('http://localhost:5000/org', {
             
-            chainaddress:props.chainaddress,
-            chainkey:props.chainkey,
-            mode:4,
-            choice:para,
-        })
-
-
-
-
+    //         chainaddress:props.address,
+    //         connect:CircularJSON.stringify(props.connect),
+    //         mode:4,
+    //         choice:para,
+    //     })
+    props.connect.methods.get_status().send({from: props.address[0]});
   }
 
 
   console.log(props.address[0])
+  console.log(props.connect.methods.get_status().call({from:props.address[0]}).then(data=>console.log(data)))
     
 
 
