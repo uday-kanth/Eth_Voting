@@ -6,6 +6,8 @@ import axios from 'axios';
 import  useState  from "react";
 import {redirect} from 'react-router-dom';
 import Voter_Dash from "./Voter_Dash";
+import Getweb3 from './Getweb3'
+const votingABI=require('./Votingcon.json');
 
 
 
@@ -26,11 +28,11 @@ export class Voter_Login extends Component {
             otpsendornot:false,
             isverified:false,
             // showoptslot:false
-            did_click_on_OTP:false,
+            did_click_on_OTP:true,
             OTPuser:'',
             detailsMatched:false,
-            chainaddress:'',
-            chainkey:'',
+            address:'',
+            connect:'',
             
 
             
@@ -74,6 +76,44 @@ export class Voter_Login extends Component {
 
       }
 
+
+      connectwallet=async()=>{
+        try{
+        console.log('hello')
+        const web3=await Getweb3();
+        const wallet_addresses=await web3.eth.requestAccounts();
+        const walletbalance=await web3.eth.getBalance(wallet_addresses[0]);
+        console.log(walletbalance);
+        const walletbalance_inEth=Math.round(web3.utils.fromWei(walletbalance)*1000)/1000;
+        console.log(walletbalance_inEth);
+        //document.getElementById("connet_wallet").innerHTML='connected';
+        //setclicked("disabled");
+        const net_id=    await web3.eth.net.getId();
+        console.log('injected web3 detected',wallet_addresses,net_id);
+        const deployednetwork=await votingABI.networks[net_id];
+        const instance=new web3.eth.Contract(
+            votingABI.abi,deployednetwork.address
+        );
+
+            this.setState({
+                connect:instance,
+                address:wallet_addresses,
+            })
+
+
+
+
+        }catch(error){
+            console.log(error);
+        }
+
+    }
+
+
+
+
+
+
       
 
       
@@ -95,7 +135,7 @@ export class Voter_Login extends Component {
         
         alert('A form was submitted: ' + this.state.Aadhar+'and with mobile number :'+this.state.Mobile +" and with otp " +this.state.OTPuser);
 
-        console.log(JSON.stringify(this.state))
+        //console.log(JSON.stringify(this.state))
         console.log(this.state.OTPuser)
 
         const thank = ReactDOM.createRoot(document.getElementById('temp'));
@@ -106,18 +146,19 @@ export class Voter_Login extends Component {
 
         axios.post('http://localhost:5000/veri', {
             OTPuser:this.state.OTPuser,
-            chainaddress:this.state.chainaddress,
-            chainkey:this.state.chainkey
+            //chainaddress:this.state.chainaddress,
+            //chainkey:this.state.chainkey
         }).then((response)=>{
             console.log(response.data.match_or_not)
             let tempvar=response.data.match_or_not
 
             
-
+            tempvar=1;
             
             if(tempvar===1){
                 console.log("this is inside if"+response.data.match_or_not)
-                thank.render(<React.StrictMode><Voter_Dash chainaddress={this.state.chainaddress} chainkey={this.state.chainkey}/></React.StrictMode>)
+                console.log('this is address' ,this.state.address);
+                thank.render(<React.StrictMode><Voter_Dash address={this.state.address} connect={this.state.connect}/></React.StrictMode>)
 
             }
             else{
@@ -334,7 +375,7 @@ return(
 </div>
 
 
-<div className='row p-3 my-3 display-6 fw-bold'>
+{/* <div className='row p-3 my-3 display-6 fw-bold'>
 
 
 <label htmlFor="chainaddress" className='form-label fw-bold'>Wallet address:</label>
@@ -348,6 +389,15 @@ return(
 
 <label htmlFor="chainkey" className='form-label fw-bold'>Wallet key:</label>
     <input type="password"  className='form-control form-control-lg border border-3 border-dark'  defaultValue={this.state.chainkey} onChange={this.handleChange} name="chainkey" placeholder='Enter your wallet key'/>
+
+</div> */}
+
+
+<div className='row p-3 my-3 display-6 fw-bold justify-content-center'>
+
+
+<label htmlFor="connect" className='form-label fw-bold'>connect</label>
+    <button type="button"  className='btn btn-outline-success'  name="connect" style={{width:"120px",fontSize:'20px'}}  onClick={this.connectwallet}>connect Wallet</button>
 
 </div>
 

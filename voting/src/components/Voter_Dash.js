@@ -61,7 +61,7 @@ let  items=[
   }
 
 
-
+  console.log(props.address[0])
     
 
 

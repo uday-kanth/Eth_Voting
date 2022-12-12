@@ -29,9 +29,9 @@
       "constant": true
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"readData\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"x\",\"type\":\"uint256\"}],\"name\":\"updateData\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Demo.sol\":\"Demo\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Demo.sol\":{\"keccak256\":\"0x4ed44cab981cfb9b7284b52a14c8cc6a66d7f647d0d939c0a0691a7a2c3dc257\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://45e4d4c7911b2c7df7f65acf5352d36dd08cddedf10d9761c96030082c894da0\",\"dweb:/ipfs/QmWjHGMdFsjZp6qdZCuAmEAj2EPrBCJpenGXbrHHhC1jNF\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b50610150806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c806309e960081461003b578063bef55ef314610057575b600080fd5b610055600480360381019061005091906100c3565b610075565b005b61005f61007f565b60405161006c91906100ff565b60405180910390f35b8060008190555050565b60008054905090565b600080fd5b6000819050919050565b6100a08161008d565b81146100ab57600080fd5b50565b6000813590506100bd81610097565b92915050565b6000602082840312156100d9576100d8610088565b5b60006100e7848285016100ae565b91505092915050565b6100f98161008d565b82525050565b600060208201905061011460008301846100f0565b9291505056fea2646970667358221220de649fffffa54eac7683885ee4c0bc752cd800052632ec4b9e105c488e3a48e664736f6c63430008110033",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c806309e960081461003b578063bef55ef314610057575b600080fd5b610055600480360381019061005091906100c3565b610075565b005b61005f61007f565b60405161006c91906100ff565b60405180910390f35b8060008190555050565b60008054905090565b600080fd5b6000819050919050565b6100a08161008d565b81146100ab57600080fd5b50565b6000813590506100bd81610097565b92915050565b6000602082840312156100d9576100d8610088565b5b60006100e7848285016100ae565b91505092915050565b6100f98161008d565b82525050565b600060208201905061011460008301846100f0565b9291505056fea2646970667358221220de649fffffa54eac7683885ee4c0bc752cd800052632ec4b9e105c488e3a48e664736f6c63430008110033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"readData\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"x\",\"type\":\"uint256\"}],\"name\":\"updateData\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Demo.sol\":\"Demo\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Demo.sol\":{\"keccak256\":\"0xc1ee59f95b8e106942b0eeba37258ca52a6abc024915427f47407979674ee1d0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://49acd74a362880b8ebbcfa1958c7cb2c7610fae0a1a50be238ab8bec573603ac\",\"dweb:/ipfs/QmXXJvZ5q6Nvre1BsJ5LddQVMn8CkyHdHhVfxrcrG1mnPr\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610150806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c806309e960081461003b578063bef55ef314610057575b600080fd5b610055600480360381019061005091906100c3565b610075565b005b61005f61007f565b60405161006c91906100ff565b60405180910390f35b8060008190555050565b60008054905090565b600080fd5b6000819050919050565b6100a08161008d565b81146100ab57600080fd5b50565b6000813590506100bd81610097565b92915050565b6000602082840312156100d9576100d8610088565b5b60006100e7848285016100ae565b91505092915050565b6100f98161008d565b82525050565b600060208201905061011460008301846100f0565b9291505056fea264697066735822122024f1cfc283189d3cd3901bc7e9c09d8d32ef497952ef2a1833295819ec6071aa64736f6c63430008110033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c806309e960081461003b578063bef55ef314610057575b600080fd5b610055600480360381019061005091906100c3565b610075565b005b61005f61007f565b60405161006c91906100ff565b60405180910390f35b8060008190555050565b60008054905090565b600080fd5b6000819050919050565b6100a08161008d565b81146100ab57600080fd5b50565b6000813590506100bd81610097565b92915050565b6000602082840312156100d9576100d8610088565b5b60006100e7848285016100ae565b91505092915050565b6100f98161008d565b82525050565b600060208201905061011460008301846100f0565b9291505056fea264697066735822122024f1cfc283189d3cd3901bc7e9c09d8d32ef497952ef2a1833295819ec6071aa64736f6c63430008110033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [
@@ -742,7 +742,7 @@
   ],
   "sourceMap": "159:190:0:-:0;;;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "159:190:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;217:52;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;273:71;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;217:52;264:1;259:4;:6;;;;217:52;:::o;273:71::-;315:4;334;;327:11;;273:71;:::o;88:117:2:-;197:1;194;187:12;334:77;371:7;400:5;389:16;;334:77;;;:::o;417:122::-;490:24;508:5;490:24;:::i;:::-;483:5;480:35;470:63;;529:1;526;519:12;470:63;417:122;:::o;545:139::-;591:5;629:6;616:20;607:29;;645:33;672:5;645:33;:::i;:::-;545:139;;;;:::o;690:329::-;749:6;798:2;786:9;777:7;773:23;769:32;766:119;;;804:79;;:::i;:::-;766:119;924:1;949:53;994:7;985:6;974:9;970:22;949:53;:::i;:::-;939:63;;895:117;690:329;;;;:::o;1025:118::-;1112:24;1130:5;1112:24;:::i;:::-;1107:3;1100:37;1025:118;;:::o;1149:222::-;1242:4;1280:2;1269:9;1265:18;1257:26;;1293:71;1361:1;1350:9;1346:17;1337:6;1293:71;:::i;:::-;1149:222;;;;:::o",
-  "source": "// Solidity program to demonstrate\r\n// how to create a contract\r\n// SPDX-License-Identifier: MIT\r\npragma solidity >=0.4.23 < 0.9.0;\r\n\r\n// Creating a contract\r\ncontract Demo {\r\n\t\r\n// Declaring variable \r\n\r\nuint data;\r\nfunction updateData(uint x)external{\r\n    data=x;\r\n}\r\n\r\nfunction readData() external view returns(uint){\r\n    return data;\r\n\r\n}\r\n\r\n}\r\n",
+  "source": "// Solidity program to demonstrate\r\n// how to create a contract\r\n// SPDX-License-Identifier: MIT\r\npragma solidity >=0.4.23 < 0.9.0;\r\n\r\n// Creating a contract\r\ncontract Demo {\r\n\t\r\n// Declaring variable \r\n\r\nuint data;\r\nfunction updateData(uint x)external{\r\n    data=x;\r\n}\r\n\r\nfunction readData() external view returns(uint){\r\n    return data;\r\n\r\n}\r\n\r\n}",
   "sourcePath": "C:\\Users\\91905\\OneDrive\\Desktop\\vs code\\project\\server\\contracts\\Demo.sol",
   "ast": {
     "absolutePath": "project:/contracts/Demo.sol",
@@ -1002,13 +1002,19 @@
         "usedErrors": []
       }
     ],
-    "src": "98:253:0"
+    "src": "98:251:0"
   },
   "compiler": {
     "name": "solc",
     "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
   },
   "networks": {
+    "5": {
+      "events": {},
+      "links": {},
+      "address": "0x77DFb9F4B62b377597b6A73B8c655273d3a659aB",
+      "transactionHash": "0x81b325d0d2a7be217baa94348dc2abb938fafb9733aa298ed14fa07d6fcd7903"
+    },
     "5777": {
       "events": {},
       "links": {},
@@ -1017,7 +1023,7 @@
     }
   },
   "schemaVersion": "3.4.10",
-  "updatedAt": "2022-11-28T07:18:45.390Z",
+  "updatedAt": "2022-12-11T11:15:28.077Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
