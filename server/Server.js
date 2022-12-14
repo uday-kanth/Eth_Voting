@@ -170,7 +170,7 @@ chain.register_voter(req.body.FirstName);
 
 
 
-
+ 
 
 app.post('/veri' ,(req,res)=>{
 

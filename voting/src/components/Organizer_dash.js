@@ -10,7 +10,7 @@ import * as ReactDOM from 'react-dom/client';
   const [votes,setvotes]=useState(0)
     
 
-
+ 
      function get_Result(){
 
          axios.post('http://localhost:5000/org', {
