@@ -75,7 +75,7 @@ export class Voter_Login extends Component {
         });
 
       }
-
+ 
 
       connectwallet=async()=>{
         try{

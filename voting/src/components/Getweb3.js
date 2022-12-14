@@ -2,7 +2,7 @@ import Web3 from 'web3';
 const Getweb3=async()=>{return new Promise(async(resolve, reject)=>{
 console.log('hello window')
 
-    
+     
 
 if(window.ethereum){
     const web3=new Web3(window.ethereum);
