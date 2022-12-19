@@ -1,6 +1,8 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
+import Getweb3 from './Getweb3'
+const votingABI=require('./Votingcon.json');
 
 
 const Voter_Register=()=>{
@@ -13,27 +15,50 @@ const Voter_Register=()=>{
     const [Aadhar,setAadhar]=useState("")
     const [Mobile,setMobile]=useState("")
     const [Address,setAddress]=useState("")
-    const [chainaddress,setchainaddress]=useState("")
-    const [chainkey,setchainkey]=useState("")
+    
 
 
-    const putIN_DB=()=>{
+    const putIN_DB=async ()=>{
 
         console.log(Email)
+        try{
+            console.log('hello')
+            const web3=await Getweb3();
+            const wallet_addresses=await web3.eth.requestAccounts();
+            const walletbalance=await web3.eth.getBalance(wallet_addresses[0]);
+            console.log(walletbalance);
+            const walletbalance_inEth=Math.round(web3.utils.fromWei(walletbalance)*1000)/1000;
+            console.log(walletbalance_inEth);
+            //document.getElementById("connet_wallet").innerHTML='connected';
+            //setclicked("disabled");
+            const net_id=    await web3.eth.net.getId();
+            console.log('injected web3 detected',wallet_addresses,net_id);
+            const deployednetwork=await votingABI.networks[net_id];
+            const instance=new web3.eth.Contract(
+                votingABI.abi,deployednetwork.address
+            );
+    
+            instance.methods.register_voter(FirstName+LastName).send({from:wallet_addresses[0]}).then((data)=>{
+                console.log(data)
+                axios.post('http://localhost:5000/putINDB', {
+                    FirstName:FirstName,
+                    LastName:LastName,
+                    DOB:DOB,
+                    Email:Email,
+                    Aadhar:Aadhar,
+                    Mobile:"+91"+Mobile,
+                    Address:Address,
+                    isRegistered:true,
+                })
+
+            });
+    
+                
+            }catch(error){
+                console.log(error);
+            }
 
 
-        axios.post('http://localhost:5000/putINDB', {
-            FirstName:FirstName,
-            LastName:LastName,
-            DOB:DOB,
-            Email:Email,
-            Aadhar:Aadhar,
-            Mobile:"+91"+Mobile,
-            Address:Address,
-            isRegistered:true,
-            chainaddress:chainaddress,
-            chainkey:chainkey,
-        })
 
 
 
@@ -129,7 +154,7 @@ return(
 
 
     <div className='row my-3 p-3 justify-content-center'>
-    <button className="btn btn-success " type="button" onClick={()=>{putIN_DB()}} style={{width:"120px",fontSize:"25px"}}>Submit</button>
+    <button className="btn btn-success " type="button" onClick={()=>{putIN_DB()}} style={{width:"120px",fontSize:"25px"}}>Connect & Submit</button>
     </div>
     
 
