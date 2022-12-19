@@ -114,38 +114,7 @@ return(
          </div>
 
 
-         <div className='row p-3 justify-content-center'>
-
-<div className='form-group'>
-<label htmlFor="chainaddress" className='form-label'>Wallet address :</label>
-<input type="text" className='border border-3 border-dark form-control ' id='chainaddress' placeholder='Enter Your wallet address' value={chainaddress} onChange={e=>{setchainaddress(e.target.value)}} />
-</div>
-
-</div>
-
-
-
-<div className='row p-3 justify-content-center'>
-
-<div className='form-group'>
-<label htmlFor="chainkey" className='form-label'>Wallet key :</label>
-<input type="password" className='border border-3 border-dark form-control ' id='chainkey' placeholder='Enter Your wallet key' value={chainkey} onChange={e=>{setchainkey(e.target.value)}} />
-</div>
-
-</div>
-
-
-
-
-
-
-
         
-
-
-
-         
-
          <div className='row my-3 p-3'>
 
          <div className='form-group'>

@@ -8,21 +8,17 @@ import * as ReactDOM from 'react-dom/client';
 
   const [winner,setwinner]=useState("")
   const [votes,setvotes]=useState(0)
+  const [candi,setcandi]=useState("")
     
 
 
      function get_Result(){
 
-         axios.post('http://localhost:5000/org', {
-            chainaddress:props.chainaddress,
-            chainkey:props.chainkey,
-            mode:3,
-            
-        }).then(async(res)=>{
+      props.chaininstance.methods.get_Result().call().then((res)=>{
 
-          console.log(res.data.winner);
-         await setwinner(res.data.winner);
-          await setvotes(res.data.votes);
+          console.log(res[0]);
+          setwinner(res[1]);
+           setvotes(res[0]);
 
           // let x=document.getElementById("winner");
           // x.innerHTML="winner : "+res.data.winner+" votes: "+res.data.votes;
@@ -31,9 +27,9 @@ import * as ReactDOM from 'react-dom/client';
           x.innerHTML='';
             let div1=document.createElement('div');
             let p1=document.createElement('p');
-            p1.innerHTML='Winner : '+res.data.winner;
+            p1.innerHTML='Winner : '+res[1];
             let p2=document.createElement('p');
-            p2.innerHTML='votes : '+res.data.votes;
+            p2.innerHTML='votes : '+res[0];
 
 
 
@@ -56,12 +52,13 @@ import * as ReactDOM from 'react-dom/client';
 
         console.log("started");
 
-       axios.post('http://localhost:5000/org', {
-            chainaddress:props.chainaddress,
-            chainkey:props.chainkey,
-            mode:1,
+      //  axios.post('http://localhost:5000/org', {
+      //       chainaddress:props.chainaddress,
+      //       chainkey:props.chainkey,
+      //       mode:1,
             
-        })
+      //   })
+      props.chaininstance.methods.start_voting().send({from:props.chainaddress}).then(data=>console.log(data));
 
         alert("the voting started");
 
@@ -70,15 +67,24 @@ import * as ReactDOM from 'react-dom/client';
 
    function end_voting(){
 
-     axios.post('http://localhost:5000/org', {
-            chainaddress:props.chainaddress,
-            chainkey:props.chainkey,
-            mode:2,
+    //  axios.post('http://localhost:5000/org', {
+    //         chainaddress:props.chainaddress,
+    //         chainkey:props.chainkey,
+    //         mode:2,
             
-        })
+    //     })
+    props.chaininstance.methods.end_voting().send({from:props.chainaddress}).then(data=>console.log(data));
 
         alert("the voting ended");
 
+    }
+
+    async function add_candidate(para){
+      console.log(para);
+      console.log(props.chainaddress);
+      await props.chaininstance.methods.addCandidates(para).send({from:props.chainaddress}).then(data=>console.log(data));
+      await props.chaininstance.methods.get_candidates_list().call().then(data=>console.log(data));
+      alert("Added "+para+" Successfully");
     }
 
 
@@ -96,7 +102,11 @@ import * as ReactDOM from 'react-dom/client';
     <div className='row  p-5 d-flex justify-content-center text-center '><button type='button' className='btn btn-lg btn-outline-dark fw-bold border-4 border border-dark' style={{ width:"250px", wordWrap:"break-word"}} onClick={()=>{start_voting()}}>Start Voting</button></div>
     
     <div className='row  p-5 d-flex justify-content-center text-center '><button type='button' className='btn btn-lg btn-outline-dark fw-bold border-4 border border-dark' style={{ width:"250px", wordWrap:"break-word"}} onClick={()=>{end_voting()}}>End Voting</button></div>
-    
+
+    <div>
+    <div className='row  p-5 d-flex justify-content-center text-center '><button type='button' className='btn btn-lg btn-outline-dark fw-bold border-4 border border-dark' style={{ width:"250px", wordWrap:"break-word"}} onClick={()=>{add_candidate(candi)}}>Add Candidate</button></div>
+    <div className='row  p-5 d-flex justify-content-center text-center '><input type="text" className='form-control form-control-lg border border-3 border-dark' value={candi} onChange={e=>{setcandi(e.target.value)}} style={{ width:"250px"}} /> </div>
+    </div>
     <div className='row  p-5 d-flex justify-content-center text-center '><button type='button' className='btn btn-lg btn-outline-dark fw-bold border-4 border border-dark' style={{ width:"250px", wordWrap:"break-word"}} onClick={()=>{get_Result()}}>Get Result</button></div>
     <div id='winner' className='row p-1 d-flex justify-content-center text-center bg-info display-3' ></div>
     

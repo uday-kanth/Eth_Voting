@@ -71,7 +71,7 @@ get_candidates_list:async function (){
 
 
 
-
+ 
 
 
 ,get_status:async function  (){

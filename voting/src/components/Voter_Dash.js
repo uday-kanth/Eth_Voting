@@ -55,7 +55,8 @@ let  items=[
     //         mode:4,
     //         choice:para,
     //     })
-    props.connect.methods.get_Result().send({from: props.address[0]});
+    //props.connect.methods.get_status().send({from: props.address[0]}).then(data=>console.log(data));
+    props.connect.methods.do_vote(para).send({from: props.address[0]}).then(data=>console.log(data));
   }
 
 
