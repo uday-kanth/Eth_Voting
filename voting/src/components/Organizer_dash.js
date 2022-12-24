@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import * as ReactDOM from 'react-dom/client';
+import Candidate_Register from './Candidate_Register';
+
 
  const Organizer_dash=(props)=> {
 
@@ -79,13 +81,20 @@ import * as ReactDOM from 'react-dom/client';
 
     }
 
-    async function add_candidate(para){
-      console.log(para);
-      console.log(props.chainaddress);
-      await props.chaininstance.methods.addCandidates(para).send({from:props.chainaddress}).then(data=>console.log(data));
-      await props.chaininstance.methods.get_candidates_list().call().then(data=>console.log(data));
-      alert("Added "+para+" Successfully");
+    const addcandi_div=()=>{
+      let adder=ReactDOM.createRoot(document.getElementById('add_div'));
+      adder.render(<React.StrictMode> <Candidate_Register chainaddress={props.chainaddress} chaininstance={props.chaininstance}></Candidate_Register></React.StrictMode>)
     }
+
+
+
+    // async function add_candidate(para){
+    //   console.log(para);
+    //   console.log(props.chainaddress);
+    //   await props.chaininstance.methods.addCandidates(para).send({from:props.chainaddress}).then(data=>console.log(data));
+    //   await props.chaininstance.methods.get_candidates_list().call().then(data=>console.log(data));
+    //   alert("Added "+para+" Successfully");
+    // }
 
 
  
@@ -104,8 +113,8 @@ import * as ReactDOM from 'react-dom/client';
     <div className='row  p-5 d-flex justify-content-center text-center '><button type='button' className='btn btn-lg btn-outline-dark fw-bold border-4 border border-dark' style={{ width:"250px", wordWrap:"break-word"}} onClick={()=>{end_voting()}}>End Voting</button></div>
 
     <div>
-    <div className='row  p-5 d-flex justify-content-center text-center '><button type='button' className='btn btn-lg btn-outline-dark fw-bold border-4 border border-dark' style={{ width:"250px", wordWrap:"break-word"}} onClick={()=>{add_candidate(candi)}}>Add Candidate</button></div>
-    <div className='row  p-5 d-flex justify-content-center text-center '><input type="text" className='form-control form-control-lg border border-3 border-dark' value={candi} onChange={e=>{setcandi(e.target.value)}} style={{ width:"250px"}} /> </div>
+    <div className='row  p-5 d-flex justify-content-center text-center '><button type='button' className='btn btn-lg btn-outline-dark fw-bold border-4 border border-dark' style={{ width:"250px", wordWrap:"break-word"}} onClick={()=>{addcandi_div()}}>Add Candidate</button></div>
+    <div className='row  p-5 d-flex justify-content-center ' id="add_div"> </div>
     </div>
     <div className='row  p-5 d-flex justify-content-center text-center '><button type='button' className='btn btn-lg btn-outline-dark fw-bold border-4 border border-dark' style={{ width:"250px", wordWrap:"break-word"}} onClick={()=>{get_Result()}}>Get Result</button></div>
     <div id='winner' className='row p-1 d-flex justify-content-center text-center bg-info display-3' ></div>

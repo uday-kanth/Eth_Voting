@@ -9,6 +9,28 @@ const Voter=require("./DB_models/Votermodel")
 const chain=require("./Voting_block.js");
 const Web3 = require('web3');
 
+//const upload=require('express-fileupload')
+var CandiModel = require('./DB_models/Candimodel');
+app.set("view engine", "ejs");
+
+
+
+var multer = require('multer');
+var fs = require('fs');
+
+ 
+var storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'candi_images')
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now())
+    }
+});
+ 
+var uploadmul = multer({ storage: storage });
+
+
 
 
 // Set up default mongoose connection
@@ -39,12 +61,11 @@ app.use(
     origin:"http://localhost:3000"
   })
 )
+//app.use(upload())
 
 
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json())
-
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 let otp=0
 
 async function hehe(obj){
@@ -139,6 +160,71 @@ hehe(obj)
 // chain.register_voter(req.body.FirstName);
 
 //hehe(x.FirstName,x.LastName,x.Aadhar,x.Mobile,x.DOB,x.Address,x.Email)
+
+})
+
+
+// Step 7 - the GET request handler that provides the HTML UI
+
+app.get('/get_items', (req, res) => {
+	CandiModel.find({}, (err, items) => {
+		if (err) {
+			console.log(err);
+			res.status(500).send('An error occurred', err);
+		}
+		else {
+			res.send({ items: items });
+		}
+	});
+});
+
+
+
+
+app.post('/put_candi', uploadmul.single('image'),(req,res)=>{
+
+  var obj = {
+    Fname: req.body.Fname,
+    Lname: req.body.Lname,
+    Aadhar:req.body.Aadhar,
+    Mobile:req.body.Mobile,
+    Party:req.body.Party,
+    img: {
+        data: fs.readFileSync(path.join(__dirname + '/candi_images/' + req.file.filename)),
+        contentType: 'image/png'
+    }
+}
+
+
+CandiModel.create(obj, (err, item) => {
+  if (err) {
+      console.log(err);
+  }
+  else {
+      // item.save();
+      res.redirect("http://localhost:3000/")
+  }
+});
+  
+  
+          
+      
+  // if(req.files){
+  //   console.log(req.files);
+  //   let file=req.files.image;
+  //   var filename=file.name
+  //   console.log(filename)
+  //   file.mv('./candi_images/'+filename,function(err){
+  //     if(err){
+  //       res.send(err);
+  //     }
+  //     else{
+  //       res.redirect("http://localhost:3000/")
+  //     }
+      
+  //   })
+  // }
+
 
 })
 

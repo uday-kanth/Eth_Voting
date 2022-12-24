@@ -148,7 +148,7 @@ export class Voter_Login extends Component {
             OTPuser:this.state.OTPuser,
             //chainaddress:this.state.chainaddress,
             //chainkey:this.state.chainkey
-        }).then((response)=>{
+        }).then(async(response)=>{
             console.log(response.data.match_or_not)
             let tempvar=response.data.match_or_not
 
@@ -158,7 +158,24 @@ export class Voter_Login extends Component {
             if(tempvar===1){
                 console.log("this is inside if"+response.data.match_or_not)
                 console.log('this is address' ,this.state.address);
-                thank.render(<React.StrictMode><Voter_Dash address={this.state.address} connect={this.state.connect}/></React.StrictMode>)
+
+                    let citems=[]
+
+                    await axios.get('http://localhost:5000/get_items').then((res)=>{
+                      //console.log(res.data.items)
+                      res.data.items.forEach((item)=>{citems.push(item)})
+                      
+                    })
+                    console.log(citems)
+                
+                
+                
+                  
+                
+
+
+
+                thank.render(<React.StrictMode><Voter_Dash address={this.state.address} connect={this.state.connect} items={citems}/></React.StrictMode>)
 
             }
             else{

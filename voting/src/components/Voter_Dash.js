@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import  {useState}  from "react";
 import Corousel from 'react-elastic-carousel';
 
+
 import CourItem from './CourItem';
 
 import axios from 'axios';
@@ -10,7 +11,7 @@ const Voter_Dash=(props)=> {
 
 
   
-
+const [contin,setcontin]=useState(false)
     
 let breakPoint=[
 
@@ -28,19 +29,30 @@ let breakPoint=[
 
 
 let  items=[
-  {id:0 , url:"./images/nota.jpg" ,party:"NOTA" , motto:"NOTA" ,Cname:"NOTA" },
-  {id:1 , url:"./images/logo2.png" ,party:"A" , motto:"this is my motto" ,Cname:"u" },
-  {id:2 , url:"./images/logo1.png",party:"B" , motto:"this is my motto" ,Cname:"v"},
-  {id:3 , url:"./images/logo3.png",party:"C", motto:"this is my motto" ,Cname:"w"},
-  {id:4 , url:"./images/logo2.png",party:"D", motto:"this is my motto" ,Cname:"x" },
-  {id:5 , url:"./images/logo1.png",party:"E", motto:"this is my motto" ,Cname:"y" },
-  {id:6 , url:"./images/logo3.png",party:"F", motto:"this is my motto" ,Cname:"z" }
+  // {id:0 , url:"./images/nota.jpg" ,party:"NOTA" , motto:"NOTA" ,Cname:"NOTA" },
+  // {id:1 , url:"./images/logo2.png" ,party:"A" , motto:"this is my motto" ,Cname:"u" },
+  // {id:2 , url:"./images/logo1.png",party:"B" , motto:"this is my motto" ,Cname:"v"},
+  // {id:3 , url:"./images/logo3.png",party:"C", motto:"this is my motto" ,Cname:"w"},
+  // {id:4 , url:"./images/logo2.png",party:"D", motto:"this is my motto" ,Cname:"x" },
+  // {id:5 , url:"./images/logo1.png",party:"E", motto:"this is my motto" ,Cname:"y" },
+  // {id:6 , url:"./images/logo3.png",party:"F", motto:"this is my motto" ,Cname:"z" }
 
 
 
 
 
   ]
+  items=props.items;
+  console.log("daf")
+console.log(props.items)
+  const get_items=()=>{
+
+    console.log(items)
+    setcontin(true)
+
+
+
+  }
 
 
   const [choice,setchoice]=useState(0);
@@ -69,6 +81,26 @@ let  items=[
     return (
         <div className='container-fluid '>
 
+      {(!contin) && 
+        <div style={{fontSize:"30px"}} className='container bg-light shadow-lg rounded-5 my-5 myback2 text-center' >
+
+        <p>Please use Your Vote Wisely</p>
+        <button type='button' className='btn btn-success fw-bold mx-5' style={{width:"120px",fontSize:'25px'}} onClick={(e)=>{get_items()}}>continue</button>
+
+
+        </div>
+      }
+
+
+
+
+
+
+        { (contin ) &&
+
+
+
+          <div>
 
         <div className='row p-3 bg-light my-3 display-6 fw-bold justify-content-center shadow-lg'>
             Select a candidate to vote
@@ -88,19 +120,20 @@ let  items=[
         
         <Corousel breakPoints={breakPoint}>
         
-        {items.map(item=>
-        <div className='container' key={item.id}>
+        {items.map((item)=>
+        { (console.log(item.Aadhar))&&
+        <div className='container' key={item.Aadhar}>
 
 
         <div className="card" style={{width :"18rem"}}>
-        <img src={require(`${item.url}`)} alt="" height={"200px"} /> 
+        {/* <img src={"data:image/"+item.img.contentType+";base64,"+item.img.data.toString('base64')} alt=""  />  */}
   <div className="card-body">
-    <h5 className="card-title">{item.Cname}</h5>
-    <p className="card-text">{item.motto}</p>
+    <h5 className="card-title">{item.Fname+" "+item.Lname}</h5>
+    <p className="card-text">{item.Aadhar}</p>
   </div>
   <ul className="list-group list-group-flush">
-    <li className="list-group-item"> <p className='fw-bold'> PartName : {item.party}</p></li>
-    <li className="list-group-item"><p className='fw-bold'> PartName : {item.party}</p></li>
+    <li className="list-group-item"> <p className='fw-bold'> PartName : {item.Party}</p></li>
+    <li className="list-group-item"><p className='fw-bold'> PartName : {item.Party}</p></li>
     <li className="list-group-item"><button type='button' className='btn btn-lg btn-outline-dark ' onClick={()=>{setchoice(item.id)}}  > Select</button></li>
   </ul>
   
@@ -109,7 +142,7 @@ let  items=[
          
          
          
-         </div>)}
+         </div>})}
 
 
 
@@ -123,7 +156,7 @@ let  items=[
 <div className='row m-5 '>
   <div className='container bg-light fw-bold rounded-4 shadow-lg  '>
   <div className='row p-1 m-5 justify-content-center' style={{fontSize:"30px" , fontFamily:"monospace" }}>
-            you have selected : {items[choice].Cname}
+            you have selected : {choice}
 
           </div>
 
@@ -143,12 +176,13 @@ let  items=[
         
         
         
+</div>
         
-        
-
+        }
         
         
         </div>
+        
     )
   
 }
