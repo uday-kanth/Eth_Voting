@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {NavLink} from 'react-router-dom';
+import Getweb3 from './Getweb3'
+const votingABI=require('./Votingcon.json');
 
 const Voter=()=>{
 
+    
 
     return(
 
@@ -22,12 +25,10 @@ const Voter=()=>{
         <NavLink to='/Voter/Register' style={{cursor:"pointer"}}><button type='button' className='btn btn-lg btn-outline-dark border-4 border border-dark fw-bold' style={{width:"50%"}} > Voter Register</button></NavLink>
         
         </div>
-
-
-
-
         </div>
 
+
+        
 
 
 

@@ -76,12 +76,12 @@ require(msg.sender==Organizer_address,"Only organizer can start the voting");
 
 function get_status()view public returns(State){
 
-require(msg.sender==Organizer_address,"Only organizer can start the voting");    
+//require(msg.sender==Organizer_address,"Only organizer can start the voting");    
     
 
     return state;
 }
-
+ 
 
 function end_voting()public{
 
