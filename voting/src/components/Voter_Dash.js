@@ -120,31 +120,31 @@ console.log(props.items)
         
         <Corousel breakPoints={breakPoint}>
         
-        {items.map((item)=>
-        { (console.log(item.Aadhar))&&
-        <div className='container' key={item.Aadhar}>
-
+       {items.map(item=><div className='container' key={item._id}>
 
         <div className="card" style={{width :"18rem"}}>
-        {/* <img src={"data:image/"+item.img.contentType+";base64,"+item.img.data.toString('base64')} alt=""  />  */}
-  <div className="card-body">
-    <h5 className="card-title">{item.Fname+" "+item.Lname}</h5>
-    <p className="card-text">{item.Aadhar}</p>
-  </div>
-  <ul className="list-group list-group-flush">
+
+
+        <img src={"data:"+item.img.contentType+";base64,"+ btoa(String.fromCharCode.apply(null, new Uint8Array(item.img.data.data)))} alt="" />
+
+           <div className="card-body">
+            <h5 className="card-title">{item.Fname}</h5>
+            <p className="card-text">{item.Lname}</p>
+           </div>
+
+
+
+
+           <ul className="list-group list-group-flush">
     <li className="list-group-item"> <p className='fw-bold'> PartName : {item.Party}</p></li>
     <li className="list-group-item"><p className='fw-bold'> PartName : {item.Party}</p></li>
-    <li className="list-group-item"><button type='button' className='btn btn-lg btn-outline-dark ' onClick={()=>{setchoice(item.id)}}  > Select</button></li>
-  </ul>
-  
-</div>
+    <li className="list-group-item"><button type='button' className='btn btn-lg btn-outline-dark ' onClick={()=>{setchoice(item._id)}}  > Select</button></li>
+            </ul>
+
+
+        </div>
         
-         
-         
-         
-         </div>})}
-
-
+        </div>)}
 
 
         </Corousel>
