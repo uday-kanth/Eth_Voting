@@ -51,8 +51,9 @@ const Candidate_Register=(props)=>{
           try{
 
           console.log(e)
-          //await props.chaininstance.methods.addCandidates(formvar.Fname.value+" "+formvar.Lname.value).send({from:props.chainaddress}).then(()=>{formvar.submit()})
-          await props.chaininstance.methods.get_candidates_list().call().then((data)=>{console.log(data);formvar.submit()});
+          console.log(formvar.Fname.value+" "+formvar.Lname.value)
+          await props.chaininstance.methods.addCandidates(formvar.Fname.value+formvar.Lname.value).send({from:props.chainaddress}).then(()=>{formvar.submit()})
+          await props.chaininstance.methods.get_candidates_list().call().then((data)=>{console.log(data)});
           alert("Added "+e+" Successfully");
           console.log(formvar.Fname.value)
 
@@ -85,19 +86,19 @@ return(
         <div className='row p-3'>
 
         <div className='col-lg my-3'>
-            <input name="Fname" type="text" className='form-control form-control-lg border border-3 border-dark' defaultValue=" " id='fname' placeholder='First Name'/>
+            <input name="Fname" type="text" className='form-control form-control-lg border border-3 border-dark' defaultValue="" id='Fname' placeholder='First Name'/>
         </div>
 
         <div className='col-lg my-3'>
-            <input name='Lname' type="text" className='form-control form-control-lg border border-3 border-dark' id="lname"  placeholder='Last Name'/>
+            <input name='Lname' type="text" className='form-control form-control-lg border border-3 border-dark' id="Lname"  placeholder='Last Name'/>
         </div>
         </div>
 
         <div className='row p-3 justify-content-center'>
 
             <div className='form-group'>
-        <label htmlFor="mail" className='form-label'>Email :</label>
-        <input name="Email" type="email" className='form-control form-control-lg border border-3 border-dark'   id='mail' placeholder='Enter Email' />
+        <label htmlFor="Email" className='form-label'>Email :</label>
+        <input name="Email" type="email" className='form-control form-control-lg border border-3 border-dark'   id='Email' placeholder='Enter Email' />
          </div>
          
          </div>
@@ -106,8 +107,8 @@ return(
          <div className='row p-3 justify-content-center'>
 
             <div className='form-group'>
-        <label htmlFor="aadhar" className='form-label'>Aadhar :</label>
-        <input name="Aadhar" type="text" className='form-control form-control-lg border border-3 border-dark' id='aadhar' placeholder='Enter Aadhar Number'  required pattern="[0-9]{12}"/>
+        <label htmlFor="Aadhar" className='form-label'>Aadhar :</label>
+        <input name="Aadhar" type="text" className='form-control form-control-lg border border-3 border-dark' id='Aadhar' placeholder='Enter Aadhar Number'  required pattern="[0-9]{12}"/>
          </div>
          
          </div>
@@ -116,8 +117,8 @@ return(
          <div className='row p-3 justify-content-center'>
 
             <div className='form-group'>
-        <label htmlFor="phone" className='form-label'>Phone No :</label>
-        <input name="Mobile" type="tel" className='form-control form-control-lg border border-3 border-dark'   id='phone' placeholder='Enter Phone Number' />
+        <label htmlFor="Mobile" className='form-label'>Mobile No :</label>
+        <input name="Mobile" type="tel" className='form-control form-control-lg border border-3 border-dark'   id='Mobile' placeholder='Enter Phone Number' />
          </div>
          
          </div>

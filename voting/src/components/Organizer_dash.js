@@ -42,9 +42,9 @@ import Candidate_Register from './Candidate_Register';
 
           
 
-        })
+        }).then((data)=>{alert("the results are calculated ...");})
 
-        alert("the results are calculated ...");
+        
 
     }
 
@@ -60,9 +60,9 @@ import Candidate_Register from './Candidate_Register';
       //       mode:1,
             
       //   })
-      props.chaininstance.methods.start_voting().send({from:props.chainaddress}).then(data=>console.log(data));
+      props.chaininstance.methods.start_voting().send({from:props.chainaddress}).then((data)=>{console.log(data);alert("the voting started");});
 
-        alert("the voting started");
+        
 
     }
 
@@ -75,9 +75,9 @@ import Candidate_Register from './Candidate_Register';
     //         mode:2,
             
     //     })
-    props.chaininstance.methods.end_voting().send({from:props.chainaddress}).then(data=>console.log(data));
+    props.chaininstance.methods.end_voting().send({from:props.chainaddress}).then((data)=>{console.log(data);alert("the voting ended");});
 
-        alert("the voting ended");
+        
 
     }
 

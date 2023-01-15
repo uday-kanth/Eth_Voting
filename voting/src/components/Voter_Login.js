@@ -28,7 +28,7 @@ export class Voter_Login extends Component {
             otpsendornot:false,
             isverified:false,
             // showoptslot:false
-            did_click_on_OTP:true,
+            did_click_on_OTP:false,
             OTPuser:'',
             detailsMatched:false,
             address:'',
@@ -153,7 +153,7 @@ export class Voter_Login extends Component {
             let tempvar=response.data.match_or_not
 
             
-            tempvar=1;
+            
             
             if(tempvar===1){
                 console.log("this is inside if"+response.data.match_or_not)
