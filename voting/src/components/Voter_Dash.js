@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import  {useState}  from "react";
 import Corousel from 'react-elastic-carousel';
+import ThankYou from './ThankYou';
+import * as ReactDOM from 'react-dom/client';
 
 
 import CourItem from './CourItem';
@@ -11,7 +13,7 @@ import { parsePath } from 'react-router-dom';
 const Voter_Dash=(props)=> {
 
 
-  
+ const [Thank,setThank]=useState(false) 
 const [contin,setcontin]=useState(false)
 const [Candi_id,setCandi_id]=useState(0);
 const [Candi_name,setCandi_name]=useState("")
@@ -66,16 +68,24 @@ console.log(props.items)
   function do_vote(para){
     para=parseInt(para)
     console.log(para)
-
+    
     // axios.post('http://localhost:5000/org', {
-            
-    //         chainaddress:props.address,
-    //         connect:CircularJSON.stringify(props.connect),
-    //         mode:4,
-    //         choice:para,
-    //     })
-    //props.connect.methods.get_status().send({from: props.address[0]}).then(data=>console.log(data));
-    props.connect.methods.do_vote(para).send({from: props.address[0]}).then(data=>console.log(data));
+      
+      //         chainaddress:props.address,
+      //         connect:CircularJSON.stringify(props.connect),
+      //         mode:4,
+      //         choice:para,
+      //     })
+      //props.connect.methods.get_status().send({from: props.address[0]}).then(data=>console.log(data));
+      props.connect.methods.do_vote(para).send({from: props.address[0]}).then((data)=>{console.log(data);
+        // const thankpage = ReactDOM.createRoot(document.getElementById('thankpage'));
+        alert ("your vote has been recorded");
+        // thankpage.render(<React.StrictMode><ThankYou></ThankYou></React.StrictMode>)
+
+        setThank(true);
+
+    
+    });
   }
 
 
@@ -86,9 +96,11 @@ console.log(props.items)
 
    
     return (
-        <div className='container-fluid '>
+        <div className='container-fluid ' id='thankpage'>
 
-      {(!contin) && 
+
+
+      {(!contin) &&(!Thank) && 
         <div style={{fontSize:"30px"}} className='container bg-light shadow-lg rounded-5 my-5 myback2 text-center' >
 
         <p>Please use Your Vote Wisely</p>
@@ -103,7 +115,7 @@ console.log(props.items)
 
 
 
-        { (contin ) &&
+        { (contin ) && (!Thank) &&
 
 
 
@@ -192,6 +204,23 @@ console.log(props.items)
 </div>
         
         }
+
+
+{ (contin) && (Thank) && <div>
+
+
+
+
+  
+</div>
+
+
+
+
+
+}
+
+
         
         
         </div>
