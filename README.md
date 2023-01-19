@@ -1,5 +1,5 @@
 # Eth_Voting #
-A blockchain-based E-voting system, created as the Third year project of Keshav Memorial Institute of Technology. Teammates include me, Mallesh , Piyush , Nikhil , Arun.
+A blockchain-based E-voting system, created as the Third year project at Keshav Memorial Institute of Technology.
 
 ## What is Ethereum Blockchain?
 
@@ -36,7 +36,7 @@ To install node.js and npm: Goto node.js download site @ https://nodejs.org/en/d
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:3000
+# serve with hot reload at localhost:5000
 npm start
 
 ```
@@ -73,9 +73,31 @@ To install Ganache: Goto Truffle-Ganache @ https://www.trufflesuite.com/ganache 
 
 Ganache provides 10 accounts preloaded with 100 fake Ether (ETH). Each account has a unique address and a private key.
 
+
+
 # MetaMask Wallet 
 MetaMask is a crypto wallet and gateway to blockchain dapps. It is available as a browser extension (for Chrome and Firefox) and as a mobile app. It equips you with a key vault, secure login and token wallet - everything you need to manage your digital assets.
 
 (For Firefox) Select "Settings" ⇒ "Add-ons" ⇒ Search for "MetaMask" ⇒ Select "Meta<ask (Ethereum Browser Extension)" ⇒ "Add to Firefox" ⇒ You will see a "Fox" icon appears on the top-right of navigation bar.
 (For Chrome) Goto "Settings" ⇒ "Extensions" ⇒ "Open Chrome Web Store" ⇒ Search for "MetaMask" ⇒ "Add to Chrome" ⇒ You will see a "Fox" icon appears on the top-right of navigation bar.
 Other alternative wallets are: EtherWallet...
+
+
+# Steps to Deploy the Contract on the BlockChain
+- Replace the MNEMONIC with the Organizer's MNEMONIC
+- Give the required Blockchain network details in the Truffle Config file in Server Folder
+- If needed make the required changes to the truffle config file
+- To deploy the contract on the blockchain (Testnet or Mainnet) use the following commands
+``` 
+
+truffle compile // this command compiles the Solidity contracts
+
+truffle migrate --reset -- network <Network_Name>   // this command deploys the contract on the specified network
+
+```
+
+- After deploying the contract , replace the ABI file in the front-end with the newly created ABI file (or) just simply replace the contract address in the ABI
+
+
+![picture alt](http://via.placeholder.com/200x150 "Title is optional")
+
