@@ -89,6 +89,15 @@ Other alternative wallets are: EtherWallet...
 - If needed make the required changes to the truffle config file
 - To deploy the contract on the blockchain (Testnet or Mainnet) use the following commands
 ``` 
-truffle compile
-truffle migrate --reset -- network <Network_Name>
+
+truffle compile // this command compiles the Solidity contracts
+
+truffle migrate --reset -- network <Network_Name>   // this command deploys the contract on the specified network
+
 ```
+
+- After deploying the contract , replace the ABI file in the front-end with the newly created ABI file (or) just simply replace the contract address in the ABI
+
+
+![picture alt](http://via.placeholder.com/200x150 "Title is optional")
+
