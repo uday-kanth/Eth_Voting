@@ -36,7 +36,7 @@ To install node.js and npm: Goto node.js download site @ https://nodejs.org/en/d
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:3000
+# serve with hot reload at localhost:5000
 npm start
 
 ```
@@ -72,6 +72,8 @@ Ganache is a local in-memory personal blockchain, which you can use to run tests
 To install Ganache: Goto Truffle-Ganache @ https://www.trufflesuite.com/ganache ⇒ Download.
 
 Ganache provides 10 accounts preloaded with 100 fake Ether (ETH). Each account has a unique address and a private key.
+
+
 
 # MetaMask Wallet 
 MetaMask is a crypto wallet and gateway to blockchain dapps. It is available as a browser extension (for Chrome and Firefox) and as a mobile app. It equips you with a key vault, secure login and token wallet - everything you need to manage your digital assets.
