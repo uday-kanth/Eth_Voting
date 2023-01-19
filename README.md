@@ -99,13 +99,36 @@ truffle migrate --reset -- network <Network_Name>   // this command deploys the 
 - After deploying the contract , replace the ABI file in the front-end with the newly created ABI file (or) just simply replace the contract address in the ABI
 
 # ScreenShots Of the Application #         
-#### this is the homepage of the application ####
+#### This is the homepage of the application ####
 
  ![homepage](https://user-images.githubusercontent.com/112926280/213517908-c8de72c7-dea4-4c86-8e56-d9b307142ba8.png)
 
-#### this is the organizer dashboard containing all the options ####
+#### This is the organizer dashboard containing all the options ####
 
  ![organizer_dashboard](https://user-images.githubusercontent.com/112926280/213522386-acae2100-cef2-41ea-bfcd-64a6901b2ded.png)
+ 
+ #### This is the form to add the candidate by the organizer. ####
+ #### The candidates are recorded in the BlockChain ####
+ 
+ ![org_add_candidate](https://user-images.githubusercontent.com/112926280/213522739-488bcf7c-0299-4e81-80be-1fc230d48d8d.png)
+
+#### This is the Voter Login Page ####
+
+![voter_login](https://user-images.githubusercontent.com/112926280/213526670-b43faa15-0b45-42a6-add6-0065b205c491.png)
+
+#### This is the voter OTP verification page.The OTP is sent to the registered Mobile Number #####
+
+![voter_otp_verfication](https://user-images.githubusercontent.com/112926280/213526959-c3f16e81-b129-43aa-a475-e6bc1505080a.png)
+
+#### Here is the DashBoard showing all the candidates along withh their details.the voter selects and votes to the candidate. ####
+#### The vote is recorded in the BlockChain  ####
+
+![voter_dashboard](https://user-images.githubusercontent.com/112926280/213527203-0908d9bd-7cbd-479c-b6fa-fbb80ad52a27.png)
+
+
+
+
+
 
 
  
