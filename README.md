@@ -81,3 +81,14 @@ MetaMask is a crypto wallet and gateway to blockchain dapps. It is available as 
 (For Firefox) Select "Settings" ⇒ "Add-ons" ⇒ Search for "MetaMask" ⇒ Select "Meta<ask (Ethereum Browser Extension)" ⇒ "Add to Firefox" ⇒ You will see a "Fox" icon appears on the top-right of navigation bar.
 (For Chrome) Goto "Settings" ⇒ "Extensions" ⇒ "Open Chrome Web Store" ⇒ Search for "MetaMask" ⇒ "Add to Chrome" ⇒ You will see a "Fox" icon appears on the top-right of navigation bar.
 Other alternative wallets are: EtherWallet...
+
+
+# Steps to Deploy the Contract on the BlockChain
+- Replace the MNEMONIC with the Organizer's MNEMONIC
+- Give the required Blockchain network details in the Truffle Config file in Server Folder
+- If needed make the required changes to the truffle config file
+- To deploy the contract on the blockchain (Testnet or Mainnet) use the following commands
+``` 
+truffle compile
+truffle migrate --reset -- network <Network_Name>
+```
