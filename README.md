@@ -98,6 +98,14 @@ truffle migrate --reset -- network <Network_Name>   // this command deploys the 
 
 - After deploying the contract , replace the ABI file in the front-end with the newly created ABI file (or) just simply replace the contract address in the ABI
 
+
+#Walkthrough#
+
+
+
+https://user-images.githubusercontent.com/112926280/213935294-b23ebefc-ad44-47db-a4e9-216fa91de3b9.mp4
+
+
 # ScreenShots Of the Application #         
 #### This is the homepage of the application ####
 
@@ -126,11 +134,6 @@ truffle migrate --reset -- network <Network_Name>   // this command deploys the 
 ![voter_dashboard](https://user-images.githubusercontent.com/112926280/213527203-0908d9bd-7cbd-479c-b6fa-fbb80ad52a27.png)
 
 
-#Walkthrough#
-
-
-
-https://user-images.githubusercontent.com/112926280/213935294-b23ebefc-ad44-47db-a4e9-216fa91de3b9.mp4
 
 
 
