@@ -51,6 +51,8 @@ const Voter_Register=()=>{
                     isRegistered:true,
                 })
 
+                alert(`the voter : ${FirstName+LastName} has been added`)
+
             });
     
                 
