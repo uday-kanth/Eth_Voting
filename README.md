@@ -99,7 +99,7 @@ truffle migrate --reset -- network <Network_Name>   // this command deploys the 
 - After deploying the contract , replace the ABI file in the front-end with the newly created ABI file (or) just simply replace the contract address in the ABI
 
 
-#Walkthrough#
+# Walkthrough #
 
 
 
