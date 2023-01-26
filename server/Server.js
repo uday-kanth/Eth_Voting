@@ -120,7 +120,17 @@ app.post('/org',(req,res)=>{
 
 
 
-
+  app.get('/get_items', (req, res) => {
+    candi.find({}, (err, items) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send('An error occurred', err);
+      }
+      else {
+        res.send({ items: items });
+      }
+    });
+  });
 
 
 
