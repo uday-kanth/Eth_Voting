@@ -5,6 +5,7 @@ const cors=require("cors");
 // Import the mongoose module
 const mongoose = require("mongoose");
 const Voter=require("./DB_models/Votermodel")
+const candi=require("./DB_models/candimodel");
 
 const chain=require("./Voting_block.js");
 
@@ -59,6 +60,12 @@ console.log(voter)
 
 
 }
+
+
+
+
+
+
 
 //hehe()
 let result={
@@ -138,23 +145,40 @@ chain.register_voter(req.body.FirstName);
 
 
 
-
-
-
-
-
-
-
-
-
-
 })
 
 
 
 
 
+app.post('/add_candi',(req,res)=>{
 
+  console.log(req.body)
+let obj=JSON.stringify(req.body)
+
+console.log(obj)
+
+
+
+chain.set_User(req.body.chainaddress,req.body.chainkey);
+
+chain.addCandidates(req.body.FirstName+req.body.LastName).then(async()=>{
+  let data=JSON.parse(obj)
+  delete data['chainaddress'];
+  delete data['chainkey'];
+  let Candi=await candi.create(data)
+
+  await Candi.save()
+  console.log(Candi)
+  
+
+
+});
+
+
+
+
+})
 
 
 

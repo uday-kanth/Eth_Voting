@@ -3,7 +3,7 @@ const Provider = require('@truffle/hdwallet-provider');
 
 
 
-var SmartContractAddress = "0xc4330abE326C79D488ee1679B00c0B29f6b474B8";
+var SmartContractAddress = "0x6cdC0Ab7ce4badc4fa681386A2DF3f4FBF522414";
 var ABI=require("./build/contracts/Votingcon.json");
 var SmartContractABI =ABI["abi"];
 var address ;

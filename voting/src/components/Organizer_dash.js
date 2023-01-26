@@ -3,11 +3,20 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import * as ReactDOM from 'react-dom/client';
+import Candidate_Register from './Candidate_Register';
+ 
 
  const Organizer_dash=(props)=> {
 
   const [winner,setwinner]=useState("")
   const [votes,setvotes]=useState(0)
+
+
+  function Candidate_register() {
+    let adder = ReactDOM.createRoot(document.getElementById('add_div'));
+    console.log(" dash " + props.chainaddress)
+    adder.render(<React.StrictMode> <Candidate_Register chainaddress={props.chainaddress} chainkey={props.chainkey}></Candidate_Register></React.StrictMode>)
+  }
     
 
  
@@ -94,7 +103,8 @@ import * as ReactDOM from 'react-dom/client';
 
 
     <div className='row  p-5 d-flex justify-content-center text-center '><button type='button' className='btn btn-lg btn-outline-dark fw-bold border-4 border border-dark' style={{ width:"250px", wordWrap:"break-word"}} onClick={()=>{start_voting()}}>Start Voting</button></div>
-    
+    <div className='row  p-5 d-flex justify-content-center text-center '><button type='button' className='btn btn-lg btn-outline-dark fw-bold border-4 border border-dark' style={{ width: "250px", wordWrap: "break-word" }} onClick={() => {Candidate_register()}}>Add Candidate</button></div>
+        <div className='row' id="add_div"> </div>
     <div className='row  p-5 d-flex justify-content-center text-center '><button type='button' className='btn btn-lg btn-outline-dark fw-bold border-4 border border-dark' style={{ width:"250px", wordWrap:"break-word"}} onClick={()=>{end_voting()}}>End Voting</button></div>
     
     <div className='row  p-5 d-flex justify-content-center text-center '><button type='button' className='btn btn-lg btn-outline-dark fw-bold border-4 border border-dark' style={{ width:"250px", wordWrap:"break-word"}} onClick={()=>{get_Result()}}>Get Result</button></div>
